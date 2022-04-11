@@ -1,12 +1,13 @@
-const shareContent = document.getElementById('shareContent');
 const btn = document.getElementById('btn');
 const result = document.querySelector('.result');
 
 btn.addEventListener('click', async () => {
+    const shareContent = document.getElementById('shareContent').value;
+    console.log(shareContent)
     try {
       await navigator.share({
 
-          text: 'Ola pessoal',
+          text: shareContent,
 
       })
     } catch(err) {
