@@ -1,17 +1,26 @@
 const btn = document.getElementById('btn');
-const result = document.querySelector('.result');
+const shareContent = document.getElementById('shareContent');
+
+function copyText() {
+    const shareContent = document.getElementById('shareContent');
+
+    shareContent.select();
+    shareContent.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+}
 
 btn.addEventListener('click', async () => {
-    const shareContent = document.getElementById('shareContent').value;
-    console.log(shareContent)
+
+    copyText()
+
     try {
       await navigator.share({
 
-          text: shareContent,
+          text: shareContent.value,
 
       })
     } catch(err) {
       result.textContent = 'Error: ' + e
     }
-    result.textContent = 'Compartilhado com sucesso!'
+
 });
