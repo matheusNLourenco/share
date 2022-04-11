@@ -5,9 +5,9 @@ const result = document.querySelector('.result');
 btn.addEventListener('click', async () => {
     try {
       await navigator.share({
-          title: '',
-          text: shareContent.value,
-          url: ''
+
+          text: 'Ola pessoal',
+
       })
     } catch(err) {
       result.textContent = 'Error: ' + e
